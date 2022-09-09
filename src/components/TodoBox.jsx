@@ -54,8 +54,14 @@ class TodoBox extends React.Component {
                 <div className="mb-3">
                     <form className="d-flex" onSubmit={this.submitHandler}>
                         <div className="me-3">
-                            <input name="tasks" value={this.state.taskText} type="text"  required="" className="form-control"
-                                   placeholder="I am going..." onChange={this.changeHandler}/>
+                            <input
+                                name="tasks"
+                                value={this.state.taskText}
+                                type="text"
+                                required=""
+                                className="form-control"
+                                placeholder="I am going..."
+                                onChange={this.changeHandler}/>
                         </div>
                         <button type="submit" className="btn btn-primary">add</button>
                     </form>
