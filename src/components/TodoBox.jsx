@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./Item";
+import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 
 class TodoBox extends React.Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class TodoBox extends React.Component {
     }
 
     removeHandler = ({target}) => {
-        const targetId = +target.id.slice(-1)
+        const targetId = target.id
         const data = [...this.state.tasks]
         const filteredData = data.filter(value => value.id !== targetId)
         this.setState({tasks: filteredData})
@@ -29,18 +30,10 @@ class TodoBox extends React.Component {
         if (this.state.taskText.length === 0) return
 
         const localArr = [...this.state.tasks]
-        let data = {}
 
-        if (!localArr.length) {
-            data = {
-                id: 0,
-                name: this.state.taskText
-            }
-        }   else {
-            data = {
-                id: localArr[localArr.length - 1].id + 1,
-                name: this.state.taskText
-            }
+        let data = {
+            id: generateUniqueID(),
+            name: this.state.taskText
         }
 
         localArr.push(data)

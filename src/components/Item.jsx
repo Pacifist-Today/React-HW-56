@@ -6,7 +6,7 @@ const Item = (props) => {
             <div className="row">
                 <div className="col-auto">
                     <button
-                        id = {"col-id " + task.id}
+                        id={task.id}
                         type="button"
                         className="btn btn-primary btn-sm"
                         onClick={onRemove}
